@@ -40,11 +40,11 @@ class RSA {
   }
 
   String getStringValueOfPublicKey() {
-    return '{${_publicKey.n}, ${_publicKey.e}}';
+    return '{ ${_publicKey.n}, ${_publicKey.e} }';
   }
 
   String getStringValueOfPrivateKey() {
-    return '{${_publicKey.n}, ${_privateKey.d}}';
+    return '{ ${_publicKey.n}, ${_privateKey.d} }';
   }
 
   int _calculateGcd(int a, int b) {

@@ -11,7 +11,15 @@ class KeyPairDisplayView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     RSA rsa = ModalRoute.of(context).settings.arguments;
-    // print(rsa.phi);
+
+    String stringValueOfPublicKey = '';
+    String stringValueOfPrivateKey = '';
+
+    /// Wheter this route is the top-most route on the navigator.
+    if (ModalRoute.of(context).isCurrent) {
+      stringValueOfPublicKey = rsa.getStringValueOfPublicKey();
+      stringValueOfPrivateKey = rsa.getStringValueOfPrivateKey();
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -33,9 +41,7 @@ class KeyPairDisplayView extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    // TODO
-                    // rsa.getStringValueOfPublicKey(),
-                    'PUBLIC KEY VALUE',
+                    stringValueOfPublicKey,
                     style: TextStyle(
                       fontSize: 24,
                     ),
@@ -55,9 +61,7 @@ class KeyPairDisplayView extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    // TODO
-                    // rsa.getStringValueOfPrivateKey(),
-                    'PRIVATE KEY VALUE',
+                    stringValueOfPrivateKey,
                     style: TextStyle(
                       fontSize: 24,
                     ),

@@ -10,11 +10,22 @@ class MessageDisplayView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Map data = ModalRoute.of(context).settings.arguments as Map;
-    // RSA rsa = data['rsa'];
-    // String plainText = data['plainText'];
 
-    // String encryptedText = rsa.encrypt(plainText);
-    // String decryptedText = rsa.decrypt(plainText);
+    RSA rsa;
+    String plainText = '';
+    String asciiText = '';
+    String encryptedText = '';
+    String decryptedText = '';
+
+    /// Wheter this route is the top-most route on the navigator.
+    if (ModalRoute.of(context).isCurrent) {
+      rsa = data['rsa'];
+      plainText = data['plainText'];
+
+      asciiText = rsa.getStringValueOfAscii(plainText);
+      encryptedText = rsa.encrypt(plainText);
+      decryptedText = rsa.decrypt(plainText);
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -36,9 +47,7 @@ class MessageDisplayView extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'ASCII VALUE',
-                    // TODO
-                    // rsa.getStringValueOfAscii(plainText),
+                    asciiText,
                     style: TextStyle(
                       fontSize: 24,
                     ),
@@ -58,9 +67,7 @@ class MessageDisplayView extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'ENCRYPTED TEXT',
-                    // TODO
-                    // encryptedText,
+                    encryptedText,
                     style: TextStyle(
                       fontSize: 24,
                     ),
@@ -80,9 +87,7 @@ class MessageDisplayView extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'DECRYPTED TEXT',
-                    // TODO
-                    // decryptedText,
+                    decryptedText,
                     style: TextStyle(
                       fontSize: 24,
                     ),

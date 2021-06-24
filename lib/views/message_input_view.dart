@@ -1,5 +1,6 @@
 /// ---------------------------------------------------
 import 'package:flutter/material.dart';
+import 'package:myapp/constants.dart';
 import 'package:myapp/rsa_operations.dart';
 import 'package:myapp/widgets/button_widget.dart';
 import 'package:myapp/widgets/input_message_widget.dart';
@@ -17,17 +18,17 @@ class MessageInputView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('MESSAGE INPUT VIEW'),
+        title: const Text('MESSAGE INPUT'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'MESSAGE',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
+            Padding(
+              padding: Constants.instance.padding,
+              child: Text(
+                'MESSAGE',
+                style: Constants.instance.headlineStyle,
               ),
             ),
             InputMessageWigdet(

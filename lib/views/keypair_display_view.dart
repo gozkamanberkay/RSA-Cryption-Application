@@ -1,12 +1,13 @@
 /// ---------------------------------------------------
 import 'package:flutter/material.dart';
+import 'package:myapp/constants.dart';
 import 'package:myapp/rsa_operations.dart';
 import 'package:myapp/widgets/button_widget.dart';
 import 'package:myapp/views/message_input_view.dart';
 
 /// ---------------------------------------------------
 class KeyPairDisplayView extends StatelessWidget {
-  static final String routeName = '/KeyPairDisplay';
+  static final String routeName = '/KeyPairDisplayView';
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class KeyPairDisplayView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('KEYPAIR DISPLAY VIEW'),
+        title: Text('KEYPAIR DISPLAY'),
       ),
       body: Center(
         child: Column(
@@ -33,18 +34,16 @@ class KeyPairDisplayView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'PUBLIC KEY',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                  Padding(
+                    padding: Constants.instance.padding,
+                    child: Text(
+                      'PUBLIC KEY',
+                      style: Constants.instance.headlineStyle,
                     ),
                   ),
                   Text(
                     stringValueOfPublicKey,
-                    style: TextStyle(
-                      fontSize: 24,
-                    ),
+                    style: Constants.instance.contextStyle,
                   ),
                 ],
               ),
@@ -53,18 +52,16 @@ class KeyPairDisplayView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'PRIVATE KEY',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                  Padding(
+                    padding: Constants.instance.padding,
+                    child: Text(
+                      'PRIVATE KEY',
+                      style: Constants.instance.headlineStyle,
                     ),
                   ),
                   Text(
                     stringValueOfPrivateKey,
-                    style: TextStyle(
-                      fontSize: 24,
-                    ),
+                    style: Constants.instance.contextStyle,
                   ),
                 ],
               ),

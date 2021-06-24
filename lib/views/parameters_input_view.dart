@@ -1,5 +1,6 @@
 /// ---------------------------------------------------
 import 'package:flutter/material.dart';
+import 'package:myapp/constants.dart';
 import 'package:myapp/widgets/button_widget.dart';
 import 'package:myapp/widgets/input_parameter_widget.dart';
 import 'package:myapp/views/keypair_display_view.dart';
@@ -20,17 +21,17 @@ class ParametersInputView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('PARAMETERS INPUT VIEW'),
+        title: const Text('PARAMETERS INPUT'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'PARAMETERS',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
+            Padding(
+              padding: Constants.instance.padding,
+              child: Text(
+                'PARAMETERS',
+                style: Constants.instance.headlineStyle,
               ),
             ),
             InputParameterWigdet(

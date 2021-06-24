@@ -1,5 +1,6 @@
 /// ---------------------------------------------------
 import 'package:flutter/material.dart';
+import 'package:myapp/constants.dart';
 import 'package:myapp/rsa_operations.dart';
 import 'package:myapp/widgets/button_widget.dart';
 
@@ -17,7 +18,7 @@ class MessageDisplayView extends StatelessWidget {
     String encryptedText = '';
     String decryptedText = '';
 
-    /// Wheter this route is the top-most route on the navigator.
+    /// Whether this route is the top-most route on the navigator.
     if (ModalRoute.of(context).isCurrent) {
       rsa = data['rsa'];
       plainText = data['plainText'];
@@ -39,18 +40,16 @@ class MessageDisplayView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'ASCII',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                  Padding(
+                    padding: Constants.instance.padding,
+                    child: Text(
+                      'ASCII',
+                      style: Constants.instance.headlineStyle,
                     ),
                   ),
                   Text(
                     asciiText,
-                    style: TextStyle(
-                      fontSize: 24,
-                    ),
+                    style: Constants.instance.contextStyle,
                   ),
                 ],
               ),
@@ -59,18 +58,16 @@ class MessageDisplayView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'ENCRYPTED',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                  Padding(
+                    padding: Constants.instance.padding,
+                    child: Text(
+                      'ENCRYPTED',
+                      style: Constants.instance.headlineStyle,
                     ),
                   ),
                   Text(
                     encryptedText,
-                    style: TextStyle(
-                      fontSize: 24,
-                    ),
+                    style: Constants.instance.contextStyle,
                   ),
                 ],
               ),
@@ -79,18 +76,16 @@ class MessageDisplayView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'DECRYPTED',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                  Padding(
+                    padding: Constants.instance.padding,
+                    child: Text(
+                      'DECRYPTED',
+                      style: Constants.instance.headlineStyle,
                     ),
                   ),
                   Text(
                     decryptedText,
-                    style: TextStyle(
-                      fontSize: 24,
-                    ),
+                    style: Constants.instance.contextStyle,
                   ),
                 ],
               ),

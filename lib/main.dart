@@ -1,5 +1,6 @@
 /// ---------------------------------------------------
-/// Simple RSA Cryption App
+/// RSA CRYPTION APPLICATION
+/// created in 2021-January by Berkay GOZKAMAN
 
 /// ---------------------------------------------------
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       routes: {
         HomeView.routeName: (context) => HomeView(),
         ParametersInputView.routeName: (context) => ParametersInputView(),

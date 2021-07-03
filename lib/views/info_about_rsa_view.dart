@@ -41,7 +41,9 @@ class InfoAboutRsaView extends StatelessWidget {
             ),
           );
         },
-        separatorBuilder: (BuildContext context, int index) => const Divider(),
+        separatorBuilder: (BuildContext context, int index) {
+          return const Divider();
+        },
       ),
     );
   }

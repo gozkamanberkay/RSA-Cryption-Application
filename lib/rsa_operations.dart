@@ -37,15 +37,19 @@ class RSA {
 
     _generatePublicKey();
     _generatePrivateKey();
-  }
+  } // constructor RSA
 
   String getStringValueOfPublicKey() {
-    return '{ ${_publicKey.n}, ${_publicKey.e} }';
-  }
+    String temp = '{ n, e } : { ${_publicKey.n}, ${_publicKey.e} }';
+
+    return temp;
+  } // method getStringValueOfPublicKey
 
   String getStringValueOfPrivateKey() {
-    return '{ ${_publicKey.n}, ${_privateKey.d} }';
-  }
+    String temp = '{ n, d } : { ${_publicKey.n}, ${_privateKey.d} }';
+
+    return temp;
+  } // method getStringValueOfPrivateKey
 
   int _calculateGcd(int a, int b) {
     int gcd;
@@ -59,7 +63,7 @@ class RSA {
       a = b;
       b = gcd;
     }
-  }
+  } // method _calculateGcd
 
   int _exponent() {
     int e = 2;
@@ -71,21 +75,23 @@ class RSA {
         e = e + 1;
       }
     }
+
     return e;
-  }
+  } // method _exponent
 
   void _generatePublicKey() {
     int n = _primes.p * _primes.q;
     int e = _exponent();
 
     _publicKey = PublicKey(n, e);
-  }
+  } // method _generatePublicKey
 
   void _generatePrivateKey() {
     int n = _primes.p * _primes.q;
     int d = _publicKey.e.modInverse(_phi); // d = e ^ (-1) mod phi
+
     _privateKey = PrivateKey(n, d);
-  }
+  } // method _generatePrivateKey
 
   String getStringValueOfAscii(String plaintext) {
     String asciiText = '';
@@ -99,14 +105,13 @@ class RSA {
     );
 
     return asciiText;
-  }
+  } // method getStringValueOfAscii
 
   String encrypt(String plaintext) {
     String encryptedText = '';
 
-    /// Convert characters to ASCII decimals,
-    /// Copy from unmodifiable list to the modifiable list.
-    ///
+    // Convert characters to ASCII decimals,
+    // Copy from unmodifiable list to the modifiable list.
     _list = [...plaintext.codeUnits];
 
     for (int i = 0; i < _list.length; i++) {
@@ -120,7 +125,7 @@ class RSA {
     );
 
     return encryptedText;
-  }
+  } // method encrypt
 
   String decrypt(String plainText) {
     String decryptedText = '';
@@ -136,5 +141,5 @@ class RSA {
     );
 
     return decryptedText;
-  }
-}
+  } // method decrypt
+} // class RSA

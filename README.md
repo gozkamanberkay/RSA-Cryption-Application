@@ -17,4 +17,5 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ## ScreenShots
-![screenshot](https://github.com/berkaygozkaman/RSA-Cryption-Application/raw/master/screenshots/HomeView.png)
+![screenshot](https://github.com/gozkamanberkay/RSA-Cryption-Application/raw/master/screenshots/HomeView.png)
+![screenshot](https://github.com/gozkamanberkay/RSA-Cryption-Application/raw/master/screenshots/ParametersInputView.png)
